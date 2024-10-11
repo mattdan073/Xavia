@@ -40,7 +40,7 @@ async function onCall({ message, args }) {
 
     // Handle text queries using the GPT-4 API
     try {
-        const { data } = await axios.get(`https://nash-rest-api-production.up.railway.app/gpt-3.5_turbo?prompt=hi${encodeURIComponent(query)}&uid=${userId}`);
+        const { data } = await axios.get(`https://deku-rest-apis.ooguy.com/api/gpt-4o?q=hi&uid=${encodeURIComponent(query)}&uid=${userId}`);
 
         if (data && data.response) {
             await message.reply(`${header}\n${data.response}\n${footer}`);
