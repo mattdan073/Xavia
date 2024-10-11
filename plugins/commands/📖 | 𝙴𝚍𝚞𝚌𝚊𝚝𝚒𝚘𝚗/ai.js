@@ -22,7 +22,7 @@ async function onCall({ message, args }) {
         const attachment = message.messageReply.attachments[0];
         const imageURL = attachment.url;
 
-        const geminiUrl = `https://joncll.serv00.net/chat.php?ask=${encodeURIComponent(query)}&imgurl=${encodeURIComponent(imageURL)}`;
+        const geminiUrl = `https://nash-rest-api-production.up.railway.app/gemini?prompt=${encodeURIComponent(query)}&imgurl=${encodeURIComponent(imageURL)}`;
         try {
             const response = await axios.get(geminiUrl);
             const { vision } = response.data;
@@ -40,7 +40,7 @@ async function onCall({ message, args }) {
 
     // Handle text queries using the GPT-4 API
     try {
-        const { data } = await axios.get(`https://lorex-gpt4.onrender.com/api/gpt4?prompt=${encodeURIComponent(query)}&uid=${userId}`);
+        const { data } = await axios.get(`https://nash-rest-api-production.up.railway.app/gpt-3.5_turbo?prompt=hi${encodeURIComponent(query)}&uid=${userId}`);
 
         if (data && data.response) {
             await message.reply(`${header}\n${data.response}\n${footer}`);
