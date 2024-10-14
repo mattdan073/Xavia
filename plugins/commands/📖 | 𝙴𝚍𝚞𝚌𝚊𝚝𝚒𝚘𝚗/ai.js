@@ -14,7 +14,7 @@ async function onCall({ message, args }) {
     const query = args.join(" ") || "hi";
     const userId = message.senderID; // Get user ID from message
 
-    const header = "(⁠◍⁠•⁠ᴗ⁠•⁠◍⁠) | 𝙼𝚘𝚌𝚑𝚊 𝙰𝚒\n・──────────────・";
+    const header = "(⁠◍⁠•⁠ᴗ⁠•⁠◍⁠) | 𝚗𝚘𝚟𝚊 𝚊𝚒 \n・──────────────・";
     const footer = "・───── >ᴗ< ──────・";
 
     // Check for image attachments in the original message
