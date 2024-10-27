@@ -189,20 +189,6 @@ export function random(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-/**
- * Circle an image
- */
-export function circle(image, x, y, radius) {
-    const tempCanvas = new canvas.createCanvas(image.width, image.height);
-    const ctx = tempCanvas.getContext("2d");
-    ctx.beginPath();
-    ctx.arc(x, y, radius, 0, 2 * Math.PI);
-    ctx.closePath();
-    ctx.clip();
-    ctx.drawImage(image, 0, 0);
-
-    return tempCanvas;
-}
 
 export async function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
