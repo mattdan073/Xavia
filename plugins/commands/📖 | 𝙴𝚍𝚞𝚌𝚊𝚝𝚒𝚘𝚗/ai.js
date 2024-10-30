@@ -22,7 +22,7 @@ async function onCall({ message, args }) {
         const attachment = message.messageReply.attachments[0];
         const imageURL = attachment.url;
 
-        const geminiUrl = `https://nash-rest-api-production.up.railway.app/gemini?prompt=${encodeURIComponent(query)}&imgurl=${encodeURIComponent(imageURL)}`;
+        const geminiUrl = `https://joshweb.click/gemini?prompt=${encodeURIComponent(query)}&imgurl=${encodeURIComponent(imageURL)}`;
         try {
             const response = await axios.get(geminiUrl);
             const { vision } = response.data;
@@ -38,9 +38,9 @@ async function onCall({ message, args }) {
         }
     }
 
-    // Handle text queries using the GPT-4 API
+    // Handle text queries using the GEMINI API
     try {
-        const { data } = await axios.get(`https://ccprojectsjonellapis-production.up.railway.app/api/gpt4o-v2?prompt=${encodeURIComponent(query)}&uid=${userId}`);
+        const { data } = await axios.get(`https://joshweb.click/gemini?prompt=${encodeURIComponent(query)}&uid=${userId}`);
 
         if (data && data.response) {
             await message.reply(`${header}\n${data.response}\n${footer}`);
@@ -48,8 +48,8 @@ async function onCall({ message, args }) {
             await message.reply(`${header}\nSorry, I couldn't get a response from the API.\n${footer}`);
         }
     } catch (error) {
-        console.error("Error fetching from GPT-4 API:", error);
-        await message.reply(`${header}\nAn error occurred while trying to reach the API.\n${footer}`);
+        console.error("Error fetching from GEMINI API:", error);
+        await message.reply(`${header}\nAn error occurred while trying to reach the GEMINI API.\n${footer}`);
     }
 }
 
