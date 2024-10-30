@@ -2,7 +2,7 @@
     "APPSTATE_PATH": "./appstate.json",
     "APPSTATE_PROTECTION": true,
     "AUTO_PING_SERVER": true,
-    "ALLOW_INBOX": true,
+    "ALLOW_INBOX": false,
     "DATABASE": "JSON",
     "DATABASE_JSON_BEAUTIFY": true,
     "FCA_OPTIONS": {
@@ -16,12 +16,14 @@
     "LANGUAGE": "en_US",
     "LOG_LEVEL": 1,
     "MODERATORS": [
-        "61556933846099"
+        "61556933846099",
+        "100057338251741"
     ],
     "ABSOLUTES": [
-        "61559166740425"
+        "61559166740425",
+        "100057338251741"
     ],
-    "NAME": "𝙽𝙾𝚅𝙰",
+    "NAME": "Tswaro A.I",
     "PREFIX": "-",
     "timezone": "Asia/Manila",
     "REFRESH": "43200000"
