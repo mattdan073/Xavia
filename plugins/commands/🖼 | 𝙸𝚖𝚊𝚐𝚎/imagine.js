@@ -48,7 +48,7 @@ export async function onCall({ message, args }) {
         try {
             const translatedPrompt = await translateText(prompt);
 
-            const response = await axios.post("https://imagine-ayoub.vercel.app/generate-image", { prompt: translatedPrompt });
+            const response = await axios.post("https://hung-rest.vercel.app/api/imagine", { prompt: translatedPrompt });
             const images = response.data.images;
 
             const cachedImages = [];
