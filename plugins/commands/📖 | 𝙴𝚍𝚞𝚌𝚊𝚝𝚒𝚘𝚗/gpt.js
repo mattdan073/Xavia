@@ -26,7 +26,7 @@ async function onCall({ message, args }) {
         const typ = global.api.sendTypingIndicator(message.threadID);
 
         // Send request to the new API with the query
-        const response = await axios.get(`https://deku-rest-apis.ooguy.com/gpt4?prompt=${encodeURIComponent(query)}&uid=${uid}`);
+        const response = await axios.get(`https://joshweb.click/api/gpt-4o?q=${encodeURIComponent(query)}&uid=${uid}`);
 
         typ();
 
@@ -34,8 +34,8 @@ async function onCall({ message, args }) {
         console.log("API response: ", response.data);
 
         // Extract the reply from the response
-        if (response.data && response.data.gpt4) {
-            const gptResponse = response.data.gpt4;
+        if (response.data && response.data.gpt4o) {
+            const gptResponse = response.data.gpt4o;
             await message.send(`🗨️✨ | 𝙲𝚑𝚊𝚝𝙶𝙿𝚃\n━━━━━━━━━━━━━━━━\n${gptResponse}\n━━━━━━━━━━━━━━━━`);
         } else {
             await message.send("🗨️✨ | 𝙲𝚊𝚝𝙶𝙿𝚃\n━━━━━━━━━━━━━━━━\nError: Unexpected response format from API.\n━━━━━━━━━━━━━━━━");
