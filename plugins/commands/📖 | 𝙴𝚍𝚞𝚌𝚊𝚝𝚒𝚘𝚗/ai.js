@@ -14,8 +14,8 @@ async function onCall({ message, args }) {
     const query = args.join(" ") || "hi";
     const userId = message.senderID; // Get user ID from message
 
-    const header = "(⁠◍⁠•⁠ᴗ⁠•⁠◍⁠) | 𝚗𝚘𝚟𝚊 𝚊𝚒 \n・──────────────・";
-    const footer = "・───── >ᴗ< ──────・";
+    const header = "";
+    const footer = "";
 
     // Check for image attachments in the original message
     if (message.messageReply && message.messageReply.attachments && message.messageReply.attachments[0]?.type === "photo") {
@@ -40,7 +40,7 @@ async function onCall({ message, args }) {
 
     // Handle text queries using the GEMINI API
     try {
-        const { data } = await axios.get(`https://joshweb.click/gemini?prompt=${encodeURIComponent(query)}&uid=${userId}`);
+        const { data } = await axios.get(`https://joshweb.click/api/gpt-4o?q=${encodeURIComponent(query)}&uid=${userId}`);
 
         if (data && data.response) {
             await message.reply(`${header}\n${data.response}\n${footer}`);
@@ -48,8 +48,8 @@ async function onCall({ message, args }) {
             await message.reply(`${header}\nSorry, I couldn't get a response from the API.\n${footer}`);
         }
     } catch (error) {
-        console.error("Error fetching from GEMINI API:", error);
-        await message.reply(`${header}\nAn error occurred while trying to reach the GEMINI API.\n${footer}`);
+        console.error("Error fetching from GPT-4 API:", error);
+        await message.reply(`${header}\nAn error occurred while trying to reach the GPT-4o API.\n${footer}`);
     }
 }
 
