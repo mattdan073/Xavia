@@ -16,13 +16,13 @@
     "LANGUAGE": "en_US",
     "LOG_LEVEL": 1,
     "MODERATORS": [
-        ""
+        "61568582416620"
     ],
     "ABSOLUTES": [
-        ""
+        "61568582416620"
     ],
-    "NAME": "",
-    "PREFIX": "",
+    "NAME": "Xaviabot",
+    "PREFIX": "x",
     "timezone": "Asia/Manila",
     "REFRESH": "43200000"
 }
