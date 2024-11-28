@@ -1,11 +1,11 @@
 const langData = {
     "en_US": {
-        "prefix.get": "🌐 | Bot's Current Prefix is [ {prefix} ]\nChat -help to see all commands."
+        "prefix.get": "Prefix is {prefix}"
     }
 }
 
 function onCall({ message, getLang, data }) {
-    const validTriggers = ["prefix", "🧋"];
+    const validTriggers = ["prefix", "Prefix"];
 
     if (validTriggers.includes(message.body) && message.senderID !== global.botID) {
         message.reply(getLang("prefix.get", {
